@@ -47,6 +47,23 @@ class SinglyLinkedList<T> {
         }
     }
 
+    func remove(n: Int) {
+        guard n >= 1 else { return }
+        var node = head
+        if n == 1 {
+            self.removeHead()
+        } else {
+            for i in 1..<n {
+                if i == n - 1 || node == nil {
+                    break
+                }
+                print(node!.data)
+                node = node?.next
+            }
+            node?.next = node?.next?.next
+        }
+    }
+
     func display() {
         print("Current SLL:")
         var node = head
