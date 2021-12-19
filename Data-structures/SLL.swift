@@ -14,7 +14,7 @@ class SinglyLinkedList<T> {
         self.head = head
     }
     
-    func insert(node: Node<T>) {    // insert at tail
+    func insert(node: Node<T>) {    // insert at tail (rear end)
         if self.head == nil {
             self.head = node
         } else {
@@ -26,16 +26,16 @@ class SinglyLinkedList<T> {
         }
     }
 
-    func insertHead(newHead: Node<T>) {
+    func insertHead(newHead: Node<T>) { // insert at the head end(front end)
         newHead.next = self.head
         self.head = newHead
     }
 
     func removeHead() {
-        self.head = self.head?.next
+        self.head = self.head?.next // remove the head node (node at the front end)
     }
-
-    func removeTail() {
+    
+    func remove() {
         if self.head?.next == nil {
             self.removeHead()
         } else {
@@ -81,7 +81,7 @@ ll.insert(node: Node(data: 30))
 ll.display()
 
 ll.removeHead()
-ll.removeTail()
+ll.remove()
 ll.display()
 
 ll.insertHead(newHead: Node(data: 0))
