@@ -63,6 +63,18 @@ class SinglyLinkedList<T> {
             node?.next = node?.next?.next
         }
     }
+    
+    func reverse() {
+        var prev: Node<T>?
+        var curr = head
+        while curr != nil {
+            let tempNext = curr!.next
+            curr!.next = prev
+            prev = curr
+            curr = tempNext
+        }
+        head = prev
+    }
 
     func display() {
         print("Current SLL:")
@@ -85,4 +97,7 @@ ll.remove()
 ll.display()
 
 ll.insertHead(newHead: Node(data: 0))
+ll.display()
+
+ll.reverse()
 ll.display()
