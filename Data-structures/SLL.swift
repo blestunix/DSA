@@ -76,6 +76,16 @@ class SinglyLinkedList<T> {
         head = prev
     }
 
+    func get_mid() -> Node<T>?{
+        var fast = head
+        var slow = head
+        while fast?.next != nil {
+            fast = fast!.next?.next
+            slow = slow!.next
+        }
+        return slow
+    }
+
     func display() {
         print("Current SLL:")
         var node = head
@@ -90,6 +100,7 @@ var ll = SinglyLinkedList<Int>()
 ll.insert(node: Node(data: 10))
 ll.insert(node: Node(data: 20))
 ll.insert(node: Node(data: 30))
+print("Mid:", ll.get_mid()!.data)
 ll.display()
 
 ll.removeHead()
