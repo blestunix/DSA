@@ -8,7 +8,7 @@ class Node<T> {
     } 
 }
 
-class SinglyLinkedList<T> {
+class SinglyLinkedList<T: Equatable> {
     var head: Node<T>?
     init(head: Node<T>? = nil) {
         self.head = head
@@ -75,6 +75,17 @@ class SinglyLinkedList<T> {
         }
         head = prev
     }
+    
+    func search(target: T) -> Bool { // Search for an element in a the ll
+        var traverser = head
+        while traverser != nil {
+            if traverser!.data == target {
+                return true
+            }
+            traverser = traverser!.next
+        }
+        return false
+    }
 
     func get_mid() -> Node<T>?{
         var fast = head
@@ -112,3 +123,4 @@ ll.display()
 
 ll.reverse()
 ll.display()
+print(ll.search(target: 0))
