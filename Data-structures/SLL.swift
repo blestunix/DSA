@@ -15,6 +15,14 @@ class SinglyLinkedList<T: Equatable> {
         head == nil
     }
     
+    var tail: Node<T>? {
+        var node = head
+        while node?.next != nil {
+            node = node!.next
+        }
+        return node
+    } 
+    
     init(head: Node<T>? = nil) {
         self.head = head
     }
