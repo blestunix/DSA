@@ -10,6 +10,11 @@ class Node<T> {
 
 class SinglyLinkedList<T: Equatable> {
     var head: Node<T>?
+    
+    var isEmpty: Bool {
+        head == nil
+    }
+    
     init(head: Node<T>? = nil) {
         self.head = head
     }
@@ -124,3 +129,4 @@ ll.display()
 ll.reverse()
 ll.display()
 print(ll.search(target: 0))
+print(ll.isEmpty)
