@@ -21,7 +21,17 @@ class SinglyLinkedList<T: Equatable> {
             node = node!.next
         }
         return node
-    } 
+    }
+    
+    var count: Int {
+        var count = 0
+        var node = head
+        while node != nil {
+            count += 1
+            node = node!.next
+        }
+        return count
+    }
     
     init(head: Node<T>? = nil) {
         self.head = head
