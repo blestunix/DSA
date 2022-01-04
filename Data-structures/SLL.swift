@@ -53,6 +53,22 @@ class SinglyLinkedList<T: Equatable> {
         newHead.next = self.head
         self.head = newHead
     }
+    
+    func insert(at index: Int, newNode: Node<T>) { // zero-indexed
+        guard 0 ... count ~= index else { fatalError("IndexOutOfRange: Position:\(index) not in \(1) ... \(count)") } 
+        if index == 0 {
+            insertHead(newHead: newNode)
+        } else {
+            var i = 1
+            var node = head
+            while node != nil && i < index {
+                i += 1
+                node = node!.next
+            }
+            newNode.next = node!.next 
+            node!.next = newNode
+        }
+    }
 
     func removeHead() {
         self.head = self.head?.next // remove the head node (node at the front end)
@@ -70,7 +86,7 @@ class SinglyLinkedList<T: Equatable> {
         }
     }
 
-    func remove(n: Int) {
+    func remove(n: Int) {   // Ordinal
         guard n >= 1 else { return }
         var node = head
         if n == 1 {
