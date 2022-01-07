@@ -135,6 +135,17 @@ class SinglyLinkedList<T: Equatable> {
         }
         return slow
     }
+    
+    func get_random() -> Node<T> {
+        var node = head
+        let n = Int.random(in: 1 ... count)
+        var i = 1
+        while i != n {
+            node = node!.next
+            i += 1
+        }
+        return node!
+    }
 
     func display() {
         print("Current SLL:")
@@ -150,6 +161,7 @@ var ll = SinglyLinkedList<Int>()
 ll.insert(node: Node(data: 10))
 ll.insert(node: Node(data: 20))
 ll.insert(node: Node(data: 30))
+print("Random", ll.get_random().data)
 print("Mid:", ll.get_mid()!.data)
 ll.display()
 
@@ -164,3 +176,4 @@ ll.reverse()
 ll.display()
 print(ll.search(target: 0))
 print(ll.isEmpty)
+
