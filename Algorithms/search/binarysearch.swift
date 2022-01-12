@@ -1,9 +1,9 @@
 func binarySearch<T: Comparable>(_ arr: [T], target: T) -> Int {
   let arr = arr.sorted()
   var l = 0
-  var r = arr.count - 1
+  var r = arr.count - 1 // not necessary to subtract the '1'; since during integer division it gets rounded off
   while l <= r {
-    let mid = l + (r - l) / 2
+    let mid = l + (r - l) / 2 // mid = (l + r) / 2 has known issues
     if arr[mid] == target {
         return mid
     } 
