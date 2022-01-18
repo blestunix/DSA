@@ -1,5 +1,5 @@
 func binarySearch<T: Comparable>(_ arr: [T], target: T) -> Int {
-  let arr = arr.sorted()
+  let arr = arr.sorted()  // assure that the sorted condition is met
   var l = 0
   var r = arr.count - 1 // not necessary to subtract the '1'; since during integer division it gets rounded off
   while l <= r {
