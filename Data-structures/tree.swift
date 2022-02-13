@@ -1,6 +1,5 @@
 // trees in swift
-struct Tree {
-  init() {
-  
-  }
+struct Node<T> {
+    var value: T
+    var children: [Node]
 }
